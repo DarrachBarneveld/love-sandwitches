@@ -88,8 +88,8 @@ def calculate_stock_data(data):
 
     return new_stock_data
 
+
 def main():
-   
     data = get_sales_data()
     sales_data = [int(num) for num in data]
     update_worksheet(sales_data, "sales")
