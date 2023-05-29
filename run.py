@@ -44,4 +44,26 @@ def validate_data(values):
     return True
 
 
-data = get_sales_data()
+def update_sales_worksheet(data):
+
+    print("Updating sales worksheet...\n")
+    sales_worksheet = SHEET.worksheet("sales")
+    sales_worksheet.append_row(data)
+    print("Sales worksheet updated successfully.\n")
+
+def calculate_surplus_data(sales_row):
+
+    print("Calculating surplus data...\n")
+    stock = SHEET.worksheet("stock").get_all_values()
+    stock_row = stock[-1]
+    print(stock_row)
+
+def main():
+
+    data = get_sales_data()
+    sales_data = [int(num) for num in data]
+    update_sales_worksheet(sales_data)
+
+
+print("Welcome to Love Sandwiches Data Automation")
+main()
